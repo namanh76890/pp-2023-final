@@ -1,0 +1,24 @@
+import tkinter as tk
+
+def underline():
+    # Get the selected text indices
+    start = text_box.index("sel.first")
+    end = text_box.index("sel.last")
+
+    # Add 'underline' tag to the selected text
+    text_box.tag_add("underline", start, end)
+
+root = tk.Tk()
+
+# Create a textbox
+text_box = tk.Text(root)
+text_box.pack()
+
+# Create an underlined button
+underline_button = tk.Button(root, text="Underline", command=underline)
+underline_button.pack()
+
+# Configure 'underline' tag to have an underline
+text_box.tag_configure("underline", underline=True)
+
+root.mainloop()

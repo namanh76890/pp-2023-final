@@ -1,0 +1,23 @@
+import tkinter as tk
+
+def submit():
+    selected_options = [listbox.get(i) for i in listbox.curselection()]
+    message_label.config(text="You have chosen {}".format(", ".join(selected_options)))
+
+root = tk.Tk()
+root.title("Choose Multiple Options")
+
+options = ["Option 1", "Option 2", "Option 3"]
+
+listbox = tk.Listbox(root, selectmode="multiple")
+for option in options:
+    listbox.insert("end", option)
+listbox.pack()
+
+submit_button = tk.Button(root, text="Submit", command=submit)
+submit_button.pack()
+
+message_label = tk.Label(root, text="")
+message_label.pack()
+
+root.mainloop()
